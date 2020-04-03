@@ -1,16 +1,3 @@
-library(data.table)
-library(ggplot2)
-library(plotly)
-library(dplyr)
-library(MASS)
-# Shiny app
-library(shiny)
-library(shinydashboard)
-# Density Based Clustering
-library(fpc)
-# Developer tools
-library(devtools)
-
 #' A GUI for exploring 2d data
 #'
 #' Explore data stored in data.tables!
@@ -19,9 +6,19 @@ library(devtools)
 #' @export
 
 GUI_2d_explore <- function(data){
-  AQ_init()
-  # Define UI
+  library(data.table)
+  library(plotly)
+  library(dplyr)
+  library(MASS)
+  # Shiny app
+  library(shiny)
+  library(shinydashboard)
+  # Density Based Clustering
+  library(fpc)
+  # Developer tools
+  library(devtools)
 
+  # Define UI
   ui <- fluidPage(
     tabsetPanel(
       # ============================================================
