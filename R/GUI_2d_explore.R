@@ -15,6 +15,8 @@ GUI_2d_explore <- function(data){
   library(shinydashboard)
   # Density Based Clustering
   library(fpc)
+  # knn regression
+  library(caret)
   # Developer tools
   library(devtools)
 
@@ -28,6 +30,10 @@ GUI_2d_explore <- function(data){
       # ============================================================
       tabPanel("OLS fit",
                RegressionLinUI("linreg.pl", "simple regression")
+      ),
+      # ============================================================
+      tabPanel("knn fit",
+               RegressionknnUI("knnreg.pl", "knn regression")
       ),
       # ============================================================
       tabPanel("k means",
@@ -52,6 +58,8 @@ GUI_2d_explore <- function(data){
     dt <- callModule(File, "datafile", reactive(data))
 
     callModule(RegressionLin, "linreg.pl", reactive(dt()))
+
+    callModule(Regressionknn, "knnreg.pl", reactive(dt()))
 
     callModule(ClusterKM, "kmeans.pl", reactive(dt()))
 
